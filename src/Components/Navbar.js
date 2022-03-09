@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import { useNavigate } from 'react-router-dom';
 import {
   Typography,
   createTheme,
@@ -7,7 +8,7 @@ import {
 } from '@material-ui/core';
 const useStyles = makeStyles({
   container: {
-    height: 140,
+    height: 150,
     background: 'darkgreen',
     display: 'flex',
     flexDirection: 'column',
@@ -46,8 +47,10 @@ theme.typography.h4 = {
 
 const Navbar = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
+
   return (
-    <div className={classes.container}>
+    <div className={classes.container} onClick={() => navigate('/')}>
       <ThemeProvider theme={theme}>
         <Typography className={classes.title} variant="h1">
           NASA Rover Lookups

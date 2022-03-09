@@ -1,9 +1,35 @@
 import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Card, CardHeader, CardContent } from '@material-ui/core';
-import { useNavigate, Route } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const useStyles = makeStyles({});
+const useStyles = makeStyles({
+  container: {
+    background: 'lightgrey',
+    paddingTop: 20,
+    paddingLeft: 10,
+  },
+  roverCardInfo: {
+    display: 'flex',
+    flexDirection: 'column',
+    fontSize: 20,
+  },
+  roverCard: {
+    background: 'grey',
+  },
+  roverCameras: {
+    height: 150,
+    overflow: 'auto',
+    background: 'lightgrey',
+    borderRadius: 15,
+    paddingTop: 10,
+    marginTop: -5,
+  },
+  gridContainer: {
+    margin: '0 auto',
+    width: '98vw',
+  },
+});
 
 const RoverListing = () => {
   const url =
@@ -32,38 +58,25 @@ const RoverListing = () => {
 
   const handleClick = (e, name) => {
     e.preventDefault();
-    navigate(`/rover/${name}`);
+    navigate(`/${name}`);
   };
 
   return (
-    <div style={{ width: '98.8%', padding: 15 }}>
-      <Grid container spacing={2}>
+    <div className={classes.container}>
+      <Grid container spacing={2} className={classes.gridContainer}>
         {roversList &&
           roversList.map((r) => (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={6}
-              lg={3}
-              key={r.id}
-              style={{
-                border: '2px solid grey',
-                borderRadius: 10,
-                background: 'lightgrey',
-              }}
-            >
+            <Grid item xs={12} sm={6} md={6} lg={3} key={r.id}>
               <Card
-                style={{ background: 'grey' }}
+                className={classes.roverCard}
                 onClick={(e) => handleClick(e, r.name)}
               >
                 <CardHeader
                   title={r.name}
-                  subheader={r.id}
-                  // style={{ fontSize: '32px', fontWeight: 900 }}
+                  titleTypographyProps={{ variant: 'h3' }}
                 />
                 <CardContent>
-                  <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div className={classes.roverCardInfo}>
                     <label>
                       <strong>Total Photos:</strong> {r.total_photos}
                     </label>
@@ -76,15 +89,7 @@ const RoverListing = () => {
                     <p>
                       <strong>Cameras available: {r.cameras.length}</strong>
                     </p>
-                    <ul
-                      style={{
-                        height: 200,
-                        overflow: 'auto',
-                        background: 'lightgrey',
-                        borderRadius: 15,
-                        paddingTop: 15,
-                      }}
-                    >
+                    <ul className={classes.roverCameras}>
                       {r.cameras.map((cam) => (
                         <li key={cam.name}>{cam.name}</li>
                       ))}

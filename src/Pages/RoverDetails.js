@@ -1,4 +1,4 @@
-import { Route, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import DatePicker from '../Components/DatePicker';
 import { Grid, CircularProgress } from '@material-ui/core';
@@ -79,7 +79,7 @@ const RoverDetails = () => {
         {!loading &&
           roverImages &&
           roverImages.map((img) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
+            <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={img.id}>
               <img src={img.img_src} className={classes.roverPic} />
             </Grid>
           ))}
