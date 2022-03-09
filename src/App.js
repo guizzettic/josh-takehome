@@ -15,7 +15,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<RoverListing />} />
-          <Route path="/rover/:name" element={<RoverDetails />} />
+          <Route path="/:name" element={<RoverDetails />} />
         </Routes>
       </div>
     </Router>
