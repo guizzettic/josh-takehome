@@ -12,7 +12,7 @@ const DatePick = ({ date, setSearchDate }) => {
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <KeyboardDatePicker
-        style={{ width: 150 }}
+        style={{ width: 150, paddingLeft: 30 }}
         value={date}
         onChange={handleDateChange}
         format="MM/dd/yyyy"
