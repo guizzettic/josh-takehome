@@ -9,16 +9,17 @@ const useStyles = makeStyles({
     margin: '20px auto',
   },
   container: {
-    padding: 15,
-    paddingLeft: 20,
+    width: '98vw',
+    margin: '0 auto',
+    background: 'lightgrey',
   },
   roverInfo: {
     display: 'flex',
     alignItems: 'center',
+    paddingLeft: 10,
   },
   grid: {
-    width: '99vw',
-    margin: '0 auto',
+    paddingBottom: 40,
   },
   roverPic: {
     height: 300,
@@ -68,14 +69,15 @@ const RoverDetails = () => {
         <DatePicker date={searchDate} setSearchDate={setSearchDate} />
       </div>
 
-      <Grid container spacing={2} className={classes.grid}>
+      <Grid container spacing={1} className={classes.grid}>
         {loading && (
           <div className={classes.loading}>
             <CircularProgress />
           </div>
         )}
 
-        {roverImages &&
+        {!loading &&
+          roverImages &&
           roverImages.map((img) => (
             <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
               <img src={img.img_src} className={classes.roverPic} />
