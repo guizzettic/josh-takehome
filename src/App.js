@@ -1,12 +1,9 @@
 import './App.css';
-// import { makeStyles } from '@material-ui/core/styles';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RoverListing from './Pages/RoverListing';
 import RoverDetails from './Pages/RoverDetails';
 import Navbar from './Components/Navbar';
-
-// const useStyles = makeStyles({});
 
 function App() {
   return (

@@ -1,11 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { useNavigate } from 'react-router-dom';
-import {
-  Typography,
-  createTheme,
-  ThemeProvider,
-  responsiveFontSizes,
-} from '@material-ui/core';
+import { Typography, createTheme, ThemeProvider } from '@material-ui/core';
 const useStyles = makeStyles({
   container: {
     height: 150,

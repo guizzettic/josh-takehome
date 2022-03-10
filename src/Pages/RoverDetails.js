@@ -25,6 +25,9 @@ const useStyles = makeStyles({
     height: 300,
     width: 300,
   },
+  noImages: {
+    paddingLeft: 10,
+  },
 });
 
 const RoverDetails = () => {
@@ -39,7 +42,7 @@ const RoverDetails = () => {
     setLoading(true);
     let newSearchDate = searchDate.split('/').reverse();
 
-    [newSearchDate[1], newSearchDate[2]] = [newSearchDate[2], newSearchDate[1]];
+    [newSearchDate[1], newSearchDate[2]] = [newSearchDate[2], newSearchDate[1]]; // using inline array swapping to get it into proper format for API call
     newSearchDate = newSearchDate.join('-');
 
     const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${name}/photos?earth_date=${newSearchDate}&api_key=myVdUkv9z8xAeDgHj0CNCxTfO1BzYYMV8bMNklQc`;
@@ -85,7 +88,9 @@ const RoverDetails = () => {
           ))}
 
         {!loading && roverImages?.length === 0 && (
-          <h1>No images from {name} available on this day</h1>
+          <h1 className={classes.noImages}>
+            No images from {name} rover available on this day
+          </h1>
         )}
       </Grid>
     </div>
