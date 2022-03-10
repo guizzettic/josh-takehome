@@ -26,7 +26,7 @@ const useStyles = makeStyles({
     width: 300,
   },
   noImages: {
-    paddingLeft: 10,
+    paddingLeft: 14,
   },
 });
 
